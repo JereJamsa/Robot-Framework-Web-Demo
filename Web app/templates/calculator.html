@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='calculator.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <form>
+            <input type="text" id="expression" name="expression" readonly>
+            <table>
+                <tr>
+                    <td><button type="button" onclick="addToExpression('1')">1</button></td>
+                    <td><button type="button" onclick="addToExpression('2')">2</button></td>
+                    <td><button type="button" onclick="addToExpression('3')">3</button></td>
+                    <td><button type="button" onclick="addToExpression('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="addToExpression('4')">4</button></td>
+                    <td><button type="button" onclick="addToExpression('5')">5</button></td>
+                    <td><button type="button" onclick="addToExpression('6')">6</button></td>
+                    <td><button type="button" onclick="addToExpression('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="addToExpression('7')">7</button></td>
+                    <td><button type="button" onclick="addToExpression('8')">8</button></td>
+                    <td><button type="button" onclick="addToExpression('9')">9</button></td>
+                    <td><button type="button" onclick="addToExpression('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="addToExpression('.')">.</button></td>
+                    <td><button type="button" onclick="addToExpression('0')">0</button></td>
+                    <td><button type="button" onclick="addToExpression('/')">/</button></td>
+                    <td><button type="button" onclick="clearExpression()">C</button></td>
+                </tr>
+            </table>
+            <input type="button" id="equals" value="=" onclick="document.getElementById('result').innerHTML = eval(document.getElementById('expression').value);">
+        </form>
+        <div class="result">Result: <span id="result">{{result}}</span></div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='calculator.js') }}"></script>
+</body>
+</html>
